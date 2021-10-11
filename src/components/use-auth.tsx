@@ -11,12 +11,27 @@ interface authObject {
 
 interface ApiCallResponse {
   data: {
-      data: {
+    data: {
       login:{
           jwt: string,
           user: User
       }
+    },
+    errors: {
+      extensions:{
+        exception:{
+          data:{
+            error: string,
+            message: {
+              messages:{
+                id: string,
+                message: string
+              }[]
+            }[]
+          }
+        }
       }
+    }[]
   }
 }
 
@@ -38,8 +53,10 @@ function useProvideAuth (): authObject {
 
   const signin = async (email:string, password:string) => {
     const signinResponse: ApiCallResponse = await User.login(email, password)
+    if (signinResponse?.data?.errors?.length || !signinResponse?.data?.data?.login) {
+      throw new Error('Email or password invalid')
+    }
     const { data: { data: { login: { jwt, user } } } } = signinResponse
-
     const loggedInUser = new User(user.id, user.email, user.blocked)
 
     setUser(loggedInUser)
