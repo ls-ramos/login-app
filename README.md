@@ -28,9 +28,12 @@ Amazon amplify was for convinience of quick deploy
 ## What would i do better if i had more time with this project ?
 
 - Improve the quality of the unit tests for a more secure and resilient application by adding more tests and testing more specific behaviors
+
 - Improve the work flow regarding localization, because at the moment if a new text is added the programmer needs to manually add translations to each translation files
 
 - Improve the UI in general by making it more modern and more flexible with the addition of themes, mostly the addition of a dark theme :)!
+
+- Improve mobile experience, based on my current tests on 2 different android phones and 2 different browsers it is possible to use the application in a cellphone but the experience can be improved
 
 - Set the jwt cookie as https-only with the server and make requests in axios using `withCredentials` flag for enhance security, for now the jwt cookie is only set with `secure` and `sameSite` flags but still accessible by `document.cookies`
 
@@ -38,7 +41,8 @@ Amazon amplify was for convinience of quick deploy
 
 ## Challenges of this project
 - It was my first type implementing an application almost fully with Typescript and Hooks and without the use of state management such as mobx, so it was a nice challenge to review the use of those concepts
-- I had some problems during deploying due packcages incompatibilities that was resolved changing the script of AWS amplify to use a specific version of nodeJS
+
+- There was an error during deploying due packages incompatibilities that was resolved changing the script of AWS amplify to use a specific version of nodeJS
 
 ## Available Scripts
 In the project directory, you can run:
