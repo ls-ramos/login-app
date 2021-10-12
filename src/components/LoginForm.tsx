@@ -4,6 +4,9 @@ import ErrorMessage from './ErrorMessage'
 import Spinner from './Spinner'
 import TopSnackbar from './TopSnackbar'
 
+import { useTranslation } from 'react-i18next'
+import WaitContainer from './WaitContainer'
+
 interface Props{
   onSubmit: (email:string, password:string) => void
 }
@@ -16,7 +19,7 @@ const areFieldsValid: (
   ) => boolean = (email, setEmailError, password, setPasswordError) => {
     let error = false
     if (!email?.trim()) {
-      setEmailError('Email can not be empty')
+      setEmailError('Email is required')
       error = true
     } else if (!email?.match(/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/)) {
       setEmailError('Invalid email address')
@@ -24,20 +27,22 @@ const areFieldsValid: (
     }
 
     if (!password.trim()) {
-      setPasswordError('Password can not be empty')
+      setPasswordError('Password is required')
       error = true
     }
 
     return !error
   }
 
-const LoginForm: FC<Props> = ({ onSubmit }) => {
+const LoginFormComponent: FC<Props> = ({ onSubmit }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [submitError, setSubmitError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const { t } = useTranslation()
 
   const clearErrors = () => {
     setEmailError('')
@@ -62,44 +67,49 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
   }
 
   return (
-    <div className="column login-form">
-      <TopSnackbar/>
-      <h1>Welcome, Log in !</h1>
-      <Input
-         className="login-input"
-         placeholder="Email"
-         type="text"
-         value={email}
-         onChange={(e) => {
-           setEmailError('')
-           setEmail(e.target.value)
-         }}
-         valueError={emailError}
-      />
-      <Input
+      <div className="column login-form">
+        <TopSnackbar/>
+        <h1>{t('Welcome, Log in!')}</h1>
+        <Input
           className="login-input"
-          placeholder="Password"
-          type="password"
-          value={password}
+          placeholder={t('Email')}
+          type="text"
+          value={email}
           onChange={(e) => {
-            setPasswordError('')
-            setPassword(e.target.value)
+            setEmailError('')
+            setEmail(e.target.value)
           }}
-          valueError={passwordError}
-      />
-      {
-        !!submitError && <ErrorMessage message={submitError}/>
-      }
-      <button
-        className="button login-button"
-        onClick={handleLoginSubmit}
-        disabled={loading}
-        >
-        {loading ? <Spinner className="centered-loader"/> : 'Login'}
-      </button>
-
-    </div>
+          valueError={t(emailError)}
+        />
+        <Input
+            className="login-input"
+            placeholder={t('Password')}
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPasswordError('')
+              setPassword(e.target.value)
+            }}
+            valueError={t(passwordError)}
+        />
+        {
+          !!submitError && <ErrorMessage message={t(submitError)}/>
+        }
+        <button
+          className="button login-button"
+          onClick={handleLoginSubmit}
+          disabled={loading}
+          >
+          {loading ? <Spinner className="centered-loader"/> : t('Login')}
+        </button>
+      </div>
   )
 }
+
+const LoginForm: FC<Props> = (props) => (
+  <WaitContainer>
+    <LoginFormComponent {...props}/>
+  </WaitContainer>
+)
 
 export default LoginForm

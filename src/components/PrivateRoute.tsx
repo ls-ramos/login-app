@@ -6,25 +6,20 @@ interface Props {
   path: string
 }
 
-const PrivateRoute: FC<Props> = (props) => {
-  const { children, ...rest } = props
+const PrivateRoute: FC<Props> = ({ children, ...rest }) => {
   const auth = useAuth()
   return (
         <Route
         {...rest}
         render={({ location }) =>
           auth?.token
-            ? (
-                children
-              )
-            : (
-            <Redirect
+            ? children
+            : <Redirect
                 to={{
                   pathname: '/',
                   state: { from: location }
                 }}
             />
-              )
         }
         />
   )

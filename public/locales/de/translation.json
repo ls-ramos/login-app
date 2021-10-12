@@ -1,0 +1,22 @@
+{
+  "Are you lost ?": "Bist du verloren ?",
+  "Unfortunately we could not find the page": "Leider konnten wir die Seite nicht finden",
+  "Back to Home": "Zurück nach Hause",
+  "Welcome, Log in!": "Willkommen, einloggen!",
+  "Email": "Email",
+  "Password": "Passwort",
+  "Login": "LogAnmeldungin",
+  "Email is required": "E-Mail ist erforderlich",
+  "Invalid email address": "Ungültige E-Mail die Anschrift",
+  "Password is required": "Passwort wird benötigt",
+  "Email or password invalid": "E-Mail oder Passwort ungültig",
+  "Network Error": "Netzwerkfehler",
+  "User information retrieved": "Benutzerinformationen abgerufen",
+  "Falied to retrieve user information": "Fehler beim Abrufen von Benutzerinformationen",
+  "Failed to logout, please try again": "Abmelden fehlgeschlagen, bitte versuchen Sie es erneut",
+  "Home": "Heim",
+  "Logout": "Ausloggen",
+  "Welcome to your home page": "Willkommen bei Ihrem Startseite",
+  "First Name": "Vorname",
+  "Last Name": "Nachname"
+}

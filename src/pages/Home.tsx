@@ -3,11 +3,14 @@ import Spinner from '../components/Spinner'
 import TopSnackbar from '../components/TopSnackbar'
 
 import { useAuth } from '../components/AuthProvider'
+import { useTranslation } from 'react-i18next'
+import WaitContainer from '../components/WaitContainer'
 
-const Home = () => {
+const HomePage = () => {
   const [loading, setLoading] = useState(true)
   const [userMessage, setUserMessage] = useState({ message: '', type: '' })
   const auth = useAuth()
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (!auth) return
@@ -16,9 +19,9 @@ const Home = () => {
     if (user && token) {
       user.getUserDetails(token).then(() => {
         setLoading(false)
-        setUserMessage({ message: 'User information retrieved', type: 'success' })
+        setUserMessage({ message: t('User information retrieved'), type: 'success' })
       }).catch(err => {
-        setUserMessage({ message: 'Falied to retrieve user information', type: 'error' })
+        setUserMessage({ message: t('Falied to retrieve user information'), type: 'error' })
         console.error(err)
       })
     }
@@ -28,7 +31,7 @@ const Home = () => {
     if (auth) {
       await auth?.signout()
     } else {
-      setUserMessage({ message: 'Failed to logout, please try again', type: 'error' })
+      setUserMessage({ message: t('Failed to logout, please try again'), type: 'error' })
     }
   }
   return (
@@ -40,19 +43,19 @@ const Home = () => {
           onClose={() => setUserMessage({ message: '', type: '' })}
         />}
         <div className="row header">
-          <h1>Home</h1>
+          <h1>{t('Home')}</h1>
           <button className="button logout-button" onClick={handleLogout}>
-            Logout
+            {t('Logout')}
           </button>
         </div>
-        <h3>Welcome to your home page</h3>
+        <h3>{t('Welcome to your home page')}</h3>
 
-        <label className="user-label">First Name</label>
+        <label className="user-label">{t('First Name')}</label>
         <div className="user-info-container">
           {loading ? <Spinner/> : <p className="user-info">{auth?.user?.firstName}</p>}
         </div>
 
-        <label className="user-label">Last Name</label>
+        <label className="user-label">{t('Last Name')}</label>
         <div className="user-info-container">
           {loading ? <Spinner/> : <p className="user-info">{auth?.user?.lastName}</p>}
         </div>
@@ -60,5 +63,11 @@ const Home = () => {
     </div>
   )
 }
+
+const Home = () => (
+  <WaitContainer>
+    <HomePage />
+  </WaitContainer>
+)
 
 export default Home

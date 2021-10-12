@@ -1,0 +1,22 @@
+{
+  "Are you lost ?": "Are you lost ?",
+  "Unfortunately we could not find the page": "Unfortunately we could not find the page",
+  "Back to Home": "Back to Home",
+  "Welcome, Log in!": "Welcome, Log in!",
+  "Email": "Email",
+  "Password": "Password",
+  "Login": "Login",
+  "Email is required": "Email is required",
+  "Invalid email address": "Invalid email address",
+  "Password is required": "Password is required",
+  "Email or password invalid": "Email or password invalid",
+  "Network Error": "Network Error",
+  "User information retrieved": "User information retrieved",
+  "Falied to retrieve user information": "Falied to retrieve user information",
+  "Failed to logout, please try again": "Failed to logout, please try again",
+  "Home": "Home",
+  "Logout": "Logout",
+  "Welcome to your home page": "Welcome to your home page",
+  "First Name": "First Name",
+  "Last Name": "Last Name"
+}

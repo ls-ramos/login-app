@@ -4,6 +4,6 @@ import LoginForm from '../../components/LoginForm'
 
 test('should render Login', () => {
   render(<LoginForm onSubmit={() => {}}/>)
-  const textElement = screen.getByText(/Welcome, Log in !/i)
+  const textElement = screen.getByText(/Welcome, Log in!/i)
   expect(textElement).toBeInTheDocument()
 })

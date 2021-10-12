@@ -1,11 +1,12 @@
 import React, { useContext, createContext, useState, FC, useEffect } from 'react'
 import { useCookies } from 'react-cookie'
 import User from '../models/User'
+import i18n from '../i18n'
 
 interface authObject {
-    user: User | null,
-    token: string | null,
-    signin: (email: string, password: string) => void,
+    user: User | null
+    token: string | null
+    signin: (email: string, password: string) => void
     signout: () => void
 }
 
@@ -37,8 +38,14 @@ interface ApiCallResponse {
 
 function useProvideAuth (): authObject {
   const [user, setUser] = useState<User | null>(null)
-  const [cookies, setCookie, removeCookie] = useCookies(['jwt'])
+  const [cookies, setCookie, removeCookie] = useCookies(['jwt', 'language'])
   const [token, setToken] = useState<string | null>(cookies?.jwt || null)
+
+  useEffect(() => {
+    if (cookies?.language) {
+      i18n.changeLanguage(cookies?.language)
+    }
+  }, [cookies?.language])
 
   useEffect(() => {
     if (cookies?.jwt && !user) {

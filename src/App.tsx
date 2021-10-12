@@ -16,11 +16,18 @@ import { ProvideAuth } from './components/AuthProvider'
 import { CookiesProvider } from 'react-cookie'
 import ErrorBoundary from './components/ErrorBoundary'
 
+import i18n from './i18n'
+import LanguageSelector from './components/LanguageSelector'
+
 function App () {
+  const changeLanguage: (newLanguage: string) => void = (newLanguage) => {
+    i18n.changeLanguage(newLanguage)
+  }
   return (
     <ErrorBoundary>
     <CookiesProvider>
     <ProvideAuth>
+      <LanguageSelector onLanguageSelected={changeLanguage}/>
       <Router>
         <Switch>
           <PrivateRoute path="/home">
