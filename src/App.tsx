@@ -14,9 +14,11 @@ import NotFound from './pages/NotFound'
 import PrivateRoute from './components/PrivateRoute'
 import { ProvideAuth } from './components/AuthProvider'
 import { CookiesProvider } from 'react-cookie'
+import ErrorBoundary from './components/ErrorBoundary'
 
 function App () {
   return (
+    <ErrorBoundary>
     <CookiesProvider>
     <ProvideAuth>
       <Router>
@@ -34,6 +36,7 @@ function App () {
       </Router>
     </ProvideAuth>
     </CookiesProvider>
+    </ErrorBoundary>
   )
 }
 
