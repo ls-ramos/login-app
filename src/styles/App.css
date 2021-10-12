@@ -104,6 +104,10 @@
   margin: 0px;
 }
 
+.notfound{
+  text-align: center;
+}
+
 /*Spinner*/
 .centered-loader{
   margin: auto;
