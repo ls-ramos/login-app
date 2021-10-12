@@ -6,7 +6,7 @@ interface Props {
   onClose?: () => void
 }
 
-const TopSnackbar: FC<Props> = ({ className, message, onClose, ...rest }) => {
+const Snackbar: FC<Props> = ({ className, message, onClose, ...rest }) => {
   const [visible, setVisible] = useState(true)
   setTimeout(() => {
     setVisible(false)
@@ -20,4 +20,4 @@ const TopSnackbar: FC<Props> = ({ className, message, onClose, ...rest }) => {
   return (visible ? <div className={`snackbar ${className || ''}`} {...rest}>{message || ''}</div> : <div></div>)
 }
 
-export default TopSnackbar
+export default Snackbar

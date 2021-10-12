@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import Input from './Input'
 import ErrorMessage from './ErrorMessage'
 import Spinner from './Spinner'
-import TopSnackbar from './TopSnackbar'
+import Snackbar from './Snackbar'
 
 import { useTranslation } from 'react-i18next'
 import WaitContainer from './WaitContainer'
@@ -68,7 +68,7 @@ const LoginFormComponent: FC<Props> = ({ onSubmit }) => {
 
   return (
       <div className="column login-form">
-        <TopSnackbar/>
+        <Snackbar/>
         <h1>{t('Welcome, Log in!')}</h1>
         <Input
           className="login-input"

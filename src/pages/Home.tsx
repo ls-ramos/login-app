@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Spinner from '../components/Spinner'
-import TopSnackbar from '../components/TopSnackbar'
+import Snackbar from '../components/Snackbar'
 
 import { useAuth } from '../components/AuthProvider'
 import { useTranslation } from 'react-i18next'
@@ -37,7 +37,7 @@ const HomePage = () => {
   return (
     <div className="main-container">
       { userMessage.message &&
-        <TopSnackbar
+        <Snackbar
           className={`${userMessage.type}-snackbar`}
           message={userMessage.message}
           onClose={() => setUserMessage({ message: '', type: '' })}

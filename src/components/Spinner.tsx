@@ -3,6 +3,6 @@ interface Props{
   className?: string
 }
 const Spinner: FC<Props> = ({ className, ...rest }) =>
-  (<div className={`loader ${className || ''}`} {...rest}></div>)
+  (<div data-testid="loader-spinner-div0" className={`loader ${className || ''}`} {...rest}></div>)
 
 export default Spinner
