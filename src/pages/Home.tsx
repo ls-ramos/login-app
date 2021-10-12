@@ -24,6 +24,13 @@ const Home = () => {
     }
   }, [auth?.user, auth?.token])
 
+  const handleLogout = async () => {
+    if (auth) {
+      await auth?.signout()
+    } else {
+      setUserMessage({ message: 'Failed to logout, please try again', type: 'error' })
+    }
+  }
   return (
     <div className="main-container">
       { userMessage.message &&
@@ -34,17 +41,9 @@ const Home = () => {
         />}
         <div className="row header">
           <h1>Home</h1>
-          <button
-            className="button logout-button"
-            onClick={async () => {
-              if (auth) {
-                await auth?.signout()
-              } else {
-                console.error('Auth not set')
-              }
-            }}>
+          <button className="button logout-button" onClick={handleLogout}>
             Logout
-        </button>
+          </button>
         </div>
         <h3>Welcome to your home page</h3>
 

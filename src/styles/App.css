@@ -94,7 +94,7 @@
 }
 
 .logout-button{
-  width: 10vw;
+  min-width: 100px;
 }
 
 .user-label{
