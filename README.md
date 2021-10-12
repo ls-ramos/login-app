@@ -3,14 +3,22 @@ This project is a demonstration of a login functionality
 
 ## General structure of the project
 
-/src - Source folder
-  /__mocks__ - Mock what is necessary for the unit tests
-  /components - General components of the application
-  /models - General models of the application 
-  /pages - Components that represents pages of the application usually each page has one route
-  /styles - General styles of the application
-  /test - Unit tests of the application
-  /utils - General helper funtions and configuration files
+  ```
+   |-public`
+   |---locales
+   |-----de
+   |-----en
+   |-----pt
+   |-src
+   |---components
+   |---__mocks__ - Mock what is necessary for the unit tests
+   |---models
+   |---pages
+   |---styles
+   |---test
+   |-----components
+   |---utils
+  ```
 
 ## What would i do better if i had more time with this project ?
 - Improve the quality of the unit tests, as they are very basic at the moment
