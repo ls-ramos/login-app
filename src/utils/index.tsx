@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-
+import config from './config'
 interface ApiCallInput {
   query: string,
   authorization?: string | null,
@@ -16,7 +16,7 @@ export const callApi = async ({ query, authorization, variables }: ApiCallInput)
   if (authorization) authorizationHeader.Authorization = `Bearer ${authorization}`
 
   return axios({
-    url: 'https://cms.trial-task.k8s.ext.fcse.io/graphql',
+    url: config.API_URL_GRAPHQL,
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
