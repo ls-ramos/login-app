@@ -15,8 +15,11 @@ const areFieldsValid: (
     setPasswordError: (error:string) => void
   ) => boolean = (email, setEmailError, password, setPasswordError) => {
     let error = false
-    if (!email.trim()) {
+    if (!email?.trim()) {
       setEmailError('Email can not be empty')
+      error = true
+    } else if (!email?.match(/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/)) {
+      setEmailError('Invalid email address')
       error = true
     }
 
@@ -40,6 +43,22 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
     setEmailError('')
     setPasswordError('')
     setSubmitError('')
+  }
+
+  const handleLoginSubmit = async () => {
+    setLoading(true)
+    clearErrors()
+    if (areFieldsValid(email, setEmailError, password, setPasswordError)) {
+      try {
+        await onSubmit(email.trim(), password)
+      } catch (err: any) {
+        console.error(err)
+        setSubmitError(err?.message)
+        setLoading(false)
+      }
+    } else {
+      setLoading(false)
+    }
   }
 
   return (
@@ -73,19 +92,7 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
       }
       <button
         className="button login-button"
-        onClick={async () => {
-          setLoading(true)
-          clearErrors()
-          if (areFieldsValid(email, setEmailError, password, setPasswordError)) {
-            try {
-              await onSubmit(email, password)
-            } catch (err: any) {
-              console.error(err)
-              setSubmitError(err?.message)
-              setLoading(false)
-            }
-          }
-        }}
+        onClick={handleLoginSubmit}
         disabled={loading}
         >
         {loading ? <Spinner className="centered-loader"/> : 'Login'}
