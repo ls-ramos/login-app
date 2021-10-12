@@ -2,7 +2,7 @@
 This project is a demonstration of a login functionality 
 
 ## Link
-This application is hosted in: https://main.dl0uoarwvwgwo.amplifyapp.com/home
+This application is hosted in: https://main.d1q3dvcx8n5s3s.amplifyapp.com/
 
 Amazon amplify was for convinience of quick deploy
 
