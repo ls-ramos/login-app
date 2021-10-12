@@ -1,13 +1,13 @@
 {
-  "Are you lost ?": "Bist du verloren ?",
+  "Are you lost ?": "Hast du dich verlaufen ?",
   "Unfortunately we could not find the page": "Leider konnten wir die Seite nicht finden",
-  "Back to Home": "Zurück nach Hause",
-  "Welcome, Log in!": "Willkommen, einloggen!",
+  "Back to Home": "Zurück zu Homepage",
+  "Welcome, Log in!": "Willkommen, loggen sie sich ein!",
   "Email": "Email",
   "Password": "Passwort",
-  "Login": "LogAnmeldungin",
+  "Login": "Login",
   "Email is required": "E-Mail ist erforderlich",
-  "Invalid email address": "Ungültige E-Mail die Anschrift",
+  "Invalid email address": "Ungültige E-Mail Adresse",
   "Password is required": "Passwort wird benötigt",
   "Email or password invalid": "E-Mail oder Passwort ungültig",
   "Network Error": "Netzwerkfehler",
@@ -16,7 +16,7 @@
   "Failed to logout, please try again": "Abmelden fehlgeschlagen, bitte versuchen Sie es erneut",
   "Home": "Heim",
   "Logout": "Ausloggen",
-  "Welcome to your home page": "Willkommen bei Ihrem Startseite",
+  "Welcome to your home page": "Willkommen auf Ihrer Homepage",
   "First Name": "Vorname",
   "Last Name": "Nachname"
 }

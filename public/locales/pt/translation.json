@@ -5,7 +5,7 @@
   "Welcome, Log in!": "Bem vindo, entre!",
   "Email": "Email",
   "Password": "Senha",
-  "Login": "Login",
+  "Login": "Entrar",
   "Email is required": "Email é obrigatório",
   "Invalid email address": "Email inválido",
   "Password is required": "Senha é obrigatório",
@@ -15,7 +15,7 @@
   "Falied to retrieve user information": "Falha ao carregar informações do usuário",
   "Failed to logout, please try again": "Falha ao deslogar, tente novamente",
   "Home": "Pagina principal",
-  "Logout": "Deslogar",
+  "Logout": "Sair",
   "Welcome to your home page": "Bem vindo a sua página principal",
   "First Name": "Primeiro nome",
   "Last Name": "Sobrenome"
