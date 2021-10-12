@@ -40,12 +40,9 @@ function useProvideAuth (): authObject {
   const [cookies, setCookie, removeCookie] = useCookies(['jwt'])
   const [token, setToken] = useState<string | null>(cookies?.jwt || null)
 
-  console.log('PROVIDER AUTH:', user)
-
   useEffect(() => {
     if (cookies?.jwt && !user) {
       User.getLoggedInUserFromToken(cookies.jwt).then(userLoggedIn => {
-        console.log('Setting user')
         setUser(userLoggedIn)
       })
     }

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useAuth } from './use-auth'
+import { useAuth } from './AuthProvider'
 
 interface Props {
   path: string
@@ -9,7 +9,6 @@ interface Props {
 const PrivateRoute: FC<Props> = (props) => {
   const { children, ...rest } = props
   const auth = useAuth()
-  console.log('PRIVATE ROUTE AUTH:', auth)
   return (
         <Route
         {...rest}

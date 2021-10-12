@@ -1,5 +1,8 @@
 import React, { FC } from 'react'
-
-const Spinner: FC = () => (<div className="loader"></div>)
+interface Props{
+  className?: string
+}
+const Spinner: FC<Props> = ({ className, ...rest }) =>
+  (<div className={`loader ${className || ''}`} {...rest}></div>)
 
 export default Spinner

@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import Input from './Input'
 import ErrorMessage from './ErrorMessage'
 import Spinner from './Spinner'
+import TopSnackbar from './TopSnackbar'
 
 interface Props{
   onSubmit: (email:string, password:string) => void
@@ -43,7 +44,8 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
 
   return (
     <div className="column login-form">
-      <h1>Welcome, Login !</h1>
+      <TopSnackbar/>
+      <h1>Welcome, Log in !</h1>
       <Input
          className="login-input"
          placeholder="Email"
@@ -70,7 +72,7 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
         !!submitError && <ErrorMessage message={submitError}/>
       }
       <button
-        className="login-button"
+        className="button login-button"
         onClick={async () => {
           setLoading(true)
           clearErrors()
@@ -78,15 +80,15 @@ const LoginForm: FC<Props> = ({ onSubmit }) => {
             try {
               await onSubmit(email, password)
             } catch (err: any) {
-              console.log(err)
+              console.error(err)
               setSubmitError(err?.message)
+              setLoading(false)
             }
           }
-          setLoading(false)
         }}
         disabled={loading}
         >
-        {loading ? <Spinner/> : 'Login'}
+        {loading ? <Spinner className="centered-loader"/> : 'Login'}
       </button>
 
     </div>

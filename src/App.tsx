@@ -11,11 +11,10 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 
 import PrivateRoute from './components/PrivateRoute'
-import { ProvideAuth } from './components/use-auth'
+import { ProvideAuth } from './components/AuthProvider'
 import { CookiesProvider } from 'react-cookie'
 
 function App () {
-  console.log('APP RE_RENDER')
   return (
     <CookiesProvider>
     <ProvideAuth>
