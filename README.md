@@ -16,12 +16,13 @@ Amazon amplify was for convinience of quick deploy
    |-----pt
    |-src
    |---components
-   |---__mocks__ - Mock what is necessary for the unit tests
+   |---__mocks__
    |---models
    |---pages
    |---styles
    |---test
    |-----components
+   |-----pages
    |---utils
   ```
 
@@ -35,14 +36,14 @@ Amazon amplify was for convinience of quick deploy
 
 - Improve mobile experience, based on my current tests on 2 different android phones and 2 different browsers it is possible to use the application in a cellphone but the experience can be improved
 
-- Set the jwt cookie as https-only with the server and make requests in axios using `withCredentials` flag for enhance security, for now the jwt cookie is only set with `secure` and `sameSite` flags but still accessible by `document.cookies`
+- Set the jwt cookie as https-only with the server and make requests in axios using `withCredentials` flag for enhance security, for now the jwt cookie is only set with `secure` and `sameSite` flags but still accessible with `document.cookies`
 
 - Improve the Snackbar component as i believe it can be better implemented to avoid future bugs
 
 ## Challenges of this project
-- It was my first type implementing an application almost fully with Typescript and Hooks and without the use of state management such as mobx, so it was a nice challenge to review the use of those concepts
+- It was the first time I implemented an application almost fully with Typescript and Hooks and without the use of state management such as mobx, so it was a nice challenge to review the use of those concepts
 
-- There was an error during deploying due packages incompatibilities that was resolved changing the script of AWS amplify to use a specific version of nodeJS
+- There was an error during the deployment due packages incompatibilities, but it was resolved by changing the script of AWS amplify to use a specific version of nodeJS
 
 ## Available Scripts
 In the project directory, you can run:
