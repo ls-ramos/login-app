@@ -4,7 +4,7 @@ This project is a demonstration of a login functionality
 ## General structure of the project
 
   ```
-   |-public`
+   |-public
    |---locales
    |-----de
    |-----en
